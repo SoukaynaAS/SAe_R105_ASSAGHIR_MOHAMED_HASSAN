@@ -12,6 +12,7 @@ for i in range(1, len(donnees)):
     types=donnees[i][2]
     if types== "Directes":
         date = donnees[i][0] 
+        heure = donnees[i][1]
         if "2025" in date:
             jour = date[0:2]
             mois = date[3:5]
@@ -21,16 +22,15 @@ for i in range(1, len(donnees)):
                 dates.append(date[:5])
                 valeurs_carbone.append(valeur)
 
-
+if len(dates) > 0 and "06" in dates[0]:
+	dates.reverse()
+	valeurs_carbone.reverse()
 
 
 from matplotlib import pyplot as plt
-
 
 plt.plot(dates, valeurs_carbone )
 plt.title("Intensité Carbone du 30 Mai au 30 Juin 2025")
 plt.ylabel("gCO₂/kWh")
 plt.xlabel("Dates")
-plt.show()
 
-   
