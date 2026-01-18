@@ -33,4 +33,4 @@ plt.plot(dates, valeurs_carbone )
 plt.title("Intensité Carbone du 30 Mai au 30 Juin 2025")
 plt.ylabel("gCO₂/kWh")
 plt.xlabel("Dates")
-
+plt.show()
