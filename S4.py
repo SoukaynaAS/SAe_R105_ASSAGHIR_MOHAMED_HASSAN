@@ -77,25 +77,46 @@ for i in range(1, len(donnees)):
 from matplotlib import pyplot as plt
 import numpy as np
 
-x= np.arange(len(Gaz14))
-largeur= 0.35
-plt.bar(x - largeur/2, Gaz14, largeur, label='Gaz')
-plt.bar(x - largeur/2, Fioul14, largeur,bottom=Gaz14 ,label='Fioul')
-plt.bar(x - largeur/2, Charbon14, largeur,bottom=Fioul14 ,label='Charbon')
-plt.bar(x - largeur/2, Déchets14, largeur,bottom=Charbon14 ,label='Déchets')
+
+Gaz14 = np.array(Gaz14); Fioul14 = np.array(Fioul14)
+Déchets14 = np.array(Déchets14); Charbon14 = np.array(Charbon14)
+
+Gaz24 = np.array(Gaz24); Fioul24 = np.array(Fioul24)
+Déchets24 = np.array(Déchets24); Charbon24 = np.array(Charbon24)
+
+x = np.arange(len(Gaz14))
+largeur = 0.35 
 
 
-plt.bar(x + largeur/2, Gaz24, largeur, label='Gaz')
-plt.bar(x + largeur/2, Fioul24, largeur,bottom=Gaz24, label='Fioul')
-plt.bar(x + largeur/2, Charbon24, largeur,bottom=Fioul24, label='Charbon')
-plt.bar(x + largeur/2, Déchets24, largeur,bottom=Charbon24 ,label='Déchets')
+c_gaz = '#FF0000'      
+c_fioul = '#705090'    
+c_déchets = '#60C0E0'  
+c_charbon = '#8B7355' 
 
-noms_mois = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sep", "Oct", "Nov", "Dec"]
-plt.title("Comparaison de l'intensité carbone : 2014 vs 2024")
-plt.ylabel("gCO₂/kWh")
+
+
+plt.bar(x - largeur/1.8, Gaz14, largeur, color=c_gaz, label='Gaz')
+plt.bar(x - largeur/1.8, Fioul14, largeur, bottom=Gaz14, color=c_fioul, label='Fioul')
+plt.bar(x - largeur/1.8, Déchets14, largeur, bottom=Gaz14+Fioul14, color=c_déchets, label='Déchets ménagers')
+plt.bar(x - largeur/1.8, Charbon14, largeur, bottom=Gaz14+Fioul14+Déchets14, color=c_charbon, label='Charbon')
+
+
+plt.bar(x + largeur/1.8, Gaz24, largeur, color=c_gaz)
+plt.bar(x + largeur/1.8, Fioul24, largeur, bottom=Gaz24, color=c_fioul)
+plt.bar(x + largeur/1.8, Déchets24, largeur, bottom=Gaz24+Fioul24, color=c_déchets)
+plt.bar(x + largeur/1.8, Charbon24, largeur, bottom=Gaz24+Fioul24+Déchets24, color=c_charbon)
+
+
+
+noms_mois = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sep", "Oct", "Nov", "Déc"]
+
+plt.title("Émissions de gaz à effet de serre liées à la production d'électricité")
+plt.ylabel("Millions de tonnes (Mt)")
 plt.xlabel("Mois")
 plt.xticks(x, noms_mois)
-plt.legend() 
+plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+
+plt.tight_layout()
 plt.show()
 
 
