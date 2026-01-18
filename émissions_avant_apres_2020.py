@@ -83,7 +83,8 @@ for i in range(1, len(donnees)):
 from matplotlib import pyplot as plt
 annee= ["2014", "2015" , "2016" , "2017", "2018 ", "2019" ,"2020" , "2021" , "2022" , "2023" , "2024" , "2025"]
 valeurs= [0.5397464547375784,0.5976113121852324, 0.6608869892742477, 0.7237215195094543, 0.7109198481586964, 0.6965514183970019, 0.6780913867722648, 0.6716681314392169,0.6788086218322862, 0.6599794504749192,0.6324351607918517, 0.6082923956612957]
-plt.bar( annee, valeurs)
+couleurs = ['skyblue' if int(a) < 2020 else 'orange' for a in annee]
+plt.bar( annee, valeurs,color=couleurs)
 plt.title("Comparaison des émissions moyennes annuelles: avant et après 2020")
 plt.ylabel('Moyenne des émissions (Mt)')
 plt.xlabel('Années')
