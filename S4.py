@@ -22,7 +22,6 @@ for i in range(1, len(donnees)):
             valeurs2024.append(valeur)
             print(valeur)
             
- 
 from matplotlib import pyplot as plt
 import numpy as np
 noms_mois = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sep", "Oct", "Nov", "Dec"]
