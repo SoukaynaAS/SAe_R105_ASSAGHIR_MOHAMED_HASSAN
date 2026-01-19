@@ -112,9 +112,10 @@ noms_mois = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sep",
 plt.title("Émissions de gaz à effet de serre liées à la production d'électricité")
 plt.ylabel("Millions de tonnes (Mt)")
 plt.xlabel("Mois")
-plt.xticks(x, noms_mois)
-plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-
+noms_complets = [f"{m}\n2014 | 2024" for m in noms_mois]
+plt.xticks(x, noms_complets)
+plt.legend(loc='upper left')
+plt.figure(figsize=(15, 8))
 plt.tight_layout()
 plt.show()
 
