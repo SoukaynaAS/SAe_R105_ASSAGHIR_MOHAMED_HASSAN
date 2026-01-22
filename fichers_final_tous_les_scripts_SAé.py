@@ -2696,4 +2696,4 @@ plt.xticks(x, noms_complets)
 plt.legend(loc='upper left')
 plt.figure(figsize=(15, 8))
 plt.tight_layout()
-plt.show(
+plt.show()
